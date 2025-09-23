@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Firma XHO</title>
+
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --sand:#ADA087; --ink:#3a3a3a;
+    --left-col: 280px;   /* ancho fijo de la columna izquierda */
+    --sig-max: 460px;    /* ancho total de la firma (antes 400px) */
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:#fff; color:var(--ink);
+    font-family:"Maven Pro", Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Contenedor firma */
+  .signature{
+    max-width:var(--sig-max);
+    width:100%;
+    margin:0 auto;
+    border:1px solid #000;
+  }
+
+  /* Dos columnas: izquierda fija, derecha crece */
+  .layout{
+    display:grid;
+    grid-template-columns: var(--left-col) 1fr; /* izquierda no cambia, derecha más ancha */
+    min-height:250px;
+  }
+
+  /* Columna izquierda */
+  .left{
+    padding:22px 22px 16px 22px;
+    display:flex; flex-direction:column; gap:12px;
+    position:relative; z-index:2; background:#fff;
+  }
+
+  /* ICONO + LOGO */
+  .logo-row{ display:flex; align-items:center; gap:14px; }
+  .logo-row .icono{ width:76px; height:auto; }
+  .logo-row .logo{
+    height:auto;
+    max-width:calc(100% - 90px); /* 76 icono + 14 gap */
+    width:auto;
+  }
+
+  /* Nombre: Source Serif 4 */
+  .name{
+    margin:2px 0 4px 0;
+    font-size:22px; letter-spacing:1.2px; font-weight:600; color:var(--sand);
+    font-family:"Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
+  }
+
+  /* Datos */
+  .info{
+    font-size:12px; line-height:1.75; letter-spacing:.2px;
+    overflow-wrap:anywhere; word-break:break-word;
+  }
+
+  /* Botones */
+  .ctas{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:10px 10px; text-decoration:none; font-size:13.5px; letter-spacing:.1px;
+    border:1px solid #ADA087; background:#fff; color:var(--ink);
+    border-radius:0; white-space:nowrap;
+    font-family:"Maven Pro", Arial, Helvetica, sans-serif;
+  }
+  .btn.primary{ background:var(--sand); color:#fff; border-color:var(--sand); }
+  .btn:hover{ opacity:.9; }
+
+  .social{ display:flex; gap:14px; margin-top:8px; }
+  .social img{ width:30px; height:30px; display:block; }
+
+  /* Columna derecha (foto) más ancha) */
+  .right{ position:relative; overflow:hidden; background:#000; z-index:1; }
+  .photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .tfg{ position:absolute; left:12px; bottom:12px; width:140px; height:auto; } /* más espacio = logo TFG un poco mayor */
+
+  /* Responsive */
+  @media (max-width:640px){
+    .layout{ grid-template-columns:1fr; }
+    .left{ padding:18px 16px 16px 16px; }
+    .logo-row .icono{ width:64px; }
+    .logo-row .logo{ max-width:calc(50% - 50px); }
+    .name{ font-size:20px; }
+    .ctas{ grid-template-columns:1fr; }
+    .social img{ width:28px; height:28px; }
+    .tfg{ width:120px; left:12px; bottom:12px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="signature">
+  <div class="layout">
+    <!-- Izquierda -->
+    <div class="left">
+      <div class="logo-row">
+        <img class="icono" src="ICONO.png" alt="XHO icono">
+        <img class="logo"  src="LOGO.png"  alt="XHO Bacalar">
+      </div>
+
+      <h1 class="name">BRANDON ERNST</h1>
+      <div class="info">
+        <div>C. +1 (786) 261-4586</div>
+        <div>BRANDON@THEFOUNDATIONGROUP.BIZ</div>
+        <div>XHOBACALAR.COM</div>
+      </div>
+
+      <div class="ctas">
+        <a class="btn primary" href="#" target="_blank" rel="noopener">Book a call</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">View brochure</a>
+      </div>
+
+      <div class="social">
+        <a href="#" target="_blank" rel="noopener"><img src="ICONO-FB.png" alt="Facebook"></a>
+        <a href="#" target="_blank" rel="noopener"><img src="ICONO-IG.png" alt="Instagram"></a>
+        <a href="#" target="_blank" rel="noopener"><img src="ICONO-WA.png" alt="WhatsApp"></a>
+      </div>
+    </div>
+
+    <!-- Derecha -->
+    <div class="right">
+      <img class="photo" src="IMAGEN.png" alt="Bacalar">
+      <img class="tfg"   src="LOGO-TFG.png" alt="The Foundation Group">
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
